@@ -1,17 +1,19 @@
-/* eslint-disable react/prop-types */
 import { Children } from "react";
 
 export default function Field({ label, children, htmlFor, error }) {
+  // getting id from htmlFor props or getChildId function
   const id = htmlFor || getChildId(children);
 
   return (
     <div className="form-control">
+      {/* showing input label */}
       {label && (
         <label htmlFor={id} className="auth-label">
           {label}
         </label>
       )}
-      {children}
+      {children} {/* input elements */}
+      {/* showing error message */}
       {!!error && (
         <div role="alert" className="text-red-600">
           {error?.message}
