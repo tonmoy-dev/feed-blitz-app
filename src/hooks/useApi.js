@@ -7,8 +7,6 @@ const useApi = () => {
   const { auth, setAuth } = useAuth();
 
   useEffect(() => {
-    console.log("Effecting...");
-
     // add a request intercepter
     const requestIntercept = api.interceptors.request.use(
       (config) => {

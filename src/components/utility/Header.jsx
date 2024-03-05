@@ -38,11 +38,13 @@ export default function Header() {
             <span className="text-lg font-medium lg:text-xl">
               {auth?.user?.firstName}
             </span>
-            <img
-              className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full"
-              src={Avatar}
-              alt="Avatar"
-            />
+            <Link to="/profile">
+              <img
+                className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full"
+                src={Avatar}
+                alt="Avatar"
+              />
+            </Link>
           </button>
         </div>
       </div>
