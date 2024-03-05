@@ -32,7 +32,7 @@ export default function Login() {
               <p className="text-center text-xs text-gray-600/95 lg:text-sm">
                 Don’t have account?
                 <Link
-                  class="text-white transition-all hover:text-lwsGreen hover:underline"
+                  className="text-white transition-all hover:text-lwsGreen hover:underline"
                   to="/register"
                 >
                   Create New

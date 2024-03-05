@@ -3,9 +3,13 @@ import HomeIcon from "../../assets/icons/home.svg";
 import NotificationIcon from "../../assets/icons/notification.svg";
 import Avatar from "../../assets/images/avatars/avatar.jpg";
 import Logo from "../../assets/images/logo.png";
+import { useAuth } from "../../hooks/useAuth";
 import Logout from "../auth/Logout";
 
 export default function Header() {
+  const { auth } = useAuth();
+  console.log(auth);
+
   return (
     <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-[#1E1F24] py-4">
       <div className="container flex flex-col items-center justify-between gap-6 sm:flex-row">
