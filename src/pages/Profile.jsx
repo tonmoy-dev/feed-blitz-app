@@ -9,7 +9,6 @@ import useProfile from "../hooks/useProfile";
 export default function Profile() {
   // profile states will be managed by reducer
   const { state, dispatch } = useProfile();
-  const { loading } = state;
 
   const { api } = useApi();
   const { auth } = useAuth();
@@ -44,9 +43,9 @@ export default function Profile() {
     };
 
     fetchProfile();
-  }, [api, auth?.user?.id, dispatch]);
+  }, []);
 
-  if (loading) {
+  if (state?.loading) {
     return <div>Fetching profile data...</div>;
   }
   return (

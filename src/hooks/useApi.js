@@ -15,7 +15,7 @@ const useApi = () => {
           // auth token added to authorization bearer
           config.headers.Authorization = `Bearer ${authToken}`;
         }
-        console.log(config);
+        // console.log(config);
 
         return config;
       },
