@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { actions } from "../actions";
+import Posts from "../components/profile/Posts";
+import ProfileInfo from "../components/profile/ProfileInfo";
 import useApi from "../hooks/useApi";
 import { useAuth } from "../hooks/useAuth";
 import useProfile from "../hooks/useProfile";
@@ -7,11 +9,10 @@ import useProfile from "../hooks/useProfile";
 export default function Profile() {
   // profile states will be managed by reducer
   const { state, dispatch } = useProfile();
-  const { user, posts, loading, error } = state;
+  const { loading } = state;
 
   const { api } = useApi();
   const { auth } = useAuth();
-  let fullName = "";
 
   useEffect(() => {
     dispatch({
@@ -45,19 +46,13 @@ export default function Profile() {
     fetchProfile();
   }, [api, auth?.user?.id, dispatch]);
 
-  if (user) {
-    fullName = `${user?.firstName} ${user?.lastName}`;
-  }
   if (loading) {
     return <div>Fetching profile data...</div>;
   }
   return (
     <>
-      <div>
-        <p>Welcome {fullName}</p>
-        <p>You have {posts?.length} posts</p>
-        {error && <p>There is an error: {error}</p>}
-      </div>
+      <ProfileInfo />
+      <Posts />
     </>
   );
 }
