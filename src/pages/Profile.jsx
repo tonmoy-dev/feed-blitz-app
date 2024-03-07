@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { actions } from "../actions";
-import Posts from "../components/profile/Posts";
 import ProfileInfo from "../components/profile/ProfileInfo";
+import ProfilePosts from "../components/profile/ProfilePosts";
 import useApi from "../hooks/useApi";
 import { useAuth } from "../hooks/useAuth";
 import useProfile from "../hooks/useProfile";
@@ -51,7 +51,7 @@ export default function Profile() {
   return (
     <>
       <ProfileInfo />
-      <Posts />
+      <ProfilePosts />
     </>
   );
 }

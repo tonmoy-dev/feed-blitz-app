@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const profileReducer = (state, action) => {
-  console.log(action);
+  // console.log(action);
 
   switch (action.type) {
     // data fetching
