@@ -11,7 +11,7 @@ export default function PostCard({ post }) {
         <PostHeader post={post} />
 
         {/* <!-- post body --> */}
-        <PostBody />
+        <PostBody postThumbnail={post?.image} postContent={post?.content} />
 
         {/* <!-- post actions --> */}
         <PostActions />
