@@ -1,11 +1,18 @@
-export default function PostComments() {
+import { useState } from "react";
+import useAvatar from "../../hooks/useAvatar";
+import PostCommentsList from "./PostCommentsList";
+
+export default function PostComments({ post }) {
+  const { avatarURL } = useAvatar(post);
+  const [showComments, setShowComments] = useState(false);
+
   return (
     <div>
       {/* <!-- comment input box --> */}
       <div className="flex-center mb-3 gap-2 lg:gap-4">
         <img
           className="max-w-7 max-h-7 rounded-full lg:max-h-[34px] lg:max-w-[34px]"
-          src="./assets/images/avatars/avatar_1.png"
+          src={avatarURL}
           alt="avatar"
         />
 
@@ -21,40 +28,15 @@ export default function PostComments() {
       </div>
       {/* <!-- comment filter button --> */}
       <div className="mt-4">
-        <button className="text-gray-300 max-md:text-sm">All Comment ▾</button>
+        <button
+          onClick={() => setShowComments(!showComments)}
+          className="text-gray-300 max-md:text-sm"
+        >
+          All Comments ▾
+        </button>
       </div>
       {/* <!-- comments --> */}
-      <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
-        {/* <!-- single comment --> */}
-        <div className="flex items-center gap-3 pt-4">
-          <img
-            className="max-w-6 max-h-6 rounded-full"
-            src="./assets/images/avatars/avatar_2.png"
-            alt="avatar"
-          />
-          <div>
-            <div className="flex gap-1 text-xs lg:text-sm">
-              <span>Tapas Adhikari: </span>
-              <span>Great Sumit Saha dada ❤</span>
-            </div>
-          </div>
-        </div>
-
-        {/* <!-- single comment --> */}
-        <div className="flex items-center gap-3 pt-4">
-          <img
-            className="max-w-6 max-h-6 rounded-full"
-            src="./assets/images/avatars/avatar_1.png"
-            alt="avatar"
-          />
-          <div>
-            <div className="flex gap-1 text-xs lg:text-sm">
-              <span>Sumit Saha: </span>
-              <span>Great Sumit Saha dada ❤</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {showComments && <PostCommentsList postComments={post?.comments} />}
     </div>
   );
 }

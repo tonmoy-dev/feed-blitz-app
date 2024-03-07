@@ -2,7 +2,7 @@ import CommentIcon from "../../assets/icons/comment.svg";
 import LikeIcon from "../../assets/icons/like.svg";
 import ShareIcon from "../../assets/icons/share.svg";
 
-export default function PostActions() {
+export default function PostActions({ commentCount }) {
   return (
     <div className="flex items-center justify-between py-6 lg:px-10 lg:py-8">
       {/* <!-- Like Button --> */}
@@ -14,7 +14,7 @@ export default function PostActions() {
       {/* <!-- Comment Button --> */}
       <button className="icon-btn space-x-2 px-6 py-3 text-xs lg:px-12 lg:text-sm">
         <img src={CommentIcon} alt="Comment" />
-        <span>Comment(2)</span>
+        <span>Comment({commentCount ?? 0})</span>
       </button>
       {/* <!-- Share Button --> */}
 

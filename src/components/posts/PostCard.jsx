@@ -14,10 +14,10 @@ export default function PostCard({ post }) {
         <PostBody postThumbnail={post?.image} postContent={post?.content} />
 
         {/* <!-- post actions --> */}
-        <PostActions />
+        <PostActions postId={post?.id} commentCount={post?.comments?.length} />
 
         {/* <!-- comment section --> */}
-        <PostComments />
+        <PostComments post={post} />
       </article>
     </>
   );
